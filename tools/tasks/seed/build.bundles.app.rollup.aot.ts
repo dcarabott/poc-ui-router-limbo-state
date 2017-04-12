@@ -22,9 +22,12 @@ const config = {
     nodeResolve({
       jsnext: true, main: true, module: true
     }),
-    commonjs({ //See project.config.ts to extend
-      include: Config.ROLLUP_INCLUDE_DIR,
-      namedExports: Config.getRollupNamedExports()
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        // 'node_modules/immutable/dist/immutable.js': [ 'Map', 'Set', 'List', 'fromJS' ],
+        // 'node_modules/ng2-dragula/ng2-dragula.js': [ 'DragulaModule', 'DragulaService' ]
+      }
     })
   ]
 };
